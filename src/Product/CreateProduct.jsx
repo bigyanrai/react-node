@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateProduct = () => {
   let [productName, setProductName] = useState("");
@@ -22,11 +24,16 @@ const CreateProduct = () => {
         data: data,
       });
       console.log(result);
+      setProductName("");
+      setQuantity("");
+      setPrice("");
+      toast.success(result.data.message);
     } catch (error) {}
   };
 
   return (
     <>
+      <ToastContainer></ToastContainer>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="productName">Product Name:</label>
