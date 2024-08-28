@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ReadAllProduct = () => {
   let navigate = useNavigate();
@@ -27,10 +28,25 @@ const ReadAllProduct = () => {
         url: `http://localhost:3000/product/${_id}`,
         method: "delete",
       });
-      console.log(result);
+      getAllData();
     } catch (error) {}
   };
 
+  const sweetAlert = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed === true) {
+        handleDelete(_id);
+      }
+    });
+  };
   return (
     <div>
       {product.map((value, index) => {
@@ -66,7 +82,7 @@ const ReadAllProduct = () => {
             <button
               style={{ margin: "5px", cursor: "pointer" }}
               onClick={() => {
-                handleDelete(value._id);
+                sweetAlert(value._id);
               }}
             >
               Delete
