@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -8,6 +8,8 @@ const UpdateProduct = () => {
   let [productName, setProductName] = useState("");
   let [quantity, setQuantity] = useState("");
   let [price, setPrice] = useState("");
+  let navigate = useNavigate();
+
   let params = useParams();
   //   let id = params;
 
@@ -43,15 +45,16 @@ const UpdateProduct = () => {
     try {
       let result = await axios({
         //Here could be error
-        url: `http://localhost:3000/product`,
-        method: "POST",
+        url: `http://localhost:3000/product/${params.id}`,
+        method: "patch",
         data: data,
       });
-      //   console.log(result);
-      //   setProductName("");
-      //   setQuantity("");
-      //   setPrice("");
-      //   toast.success(result.data.message);
+      // console.log(result);
+      setProductName("");
+      setQuantity("");
+      setPrice("");
+      toast.success(result.data.message);
+      navigate(`/product/${params.id}`);
     } catch (error) {}
   };
 
