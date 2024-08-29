@@ -11,6 +11,9 @@ import ReadSpecificStudent from "../Student/ReadSpecificStudent";
 import ReadAllDepartment from "../Department/ReadAllDepartment";
 import CreateDepartment from "../Department/CreateDepartment";
 import AdminRegister from "../Admin/AdminRegister";
+import AdminVerify from "../Admin/AdminVerify";
+import ReadSpecificDepartment from "../Department/ReadSpecificDepartment";
+import AdminLogin from "../Admin/AdminLogin";
 
 const MyRouter = () => {
   return (
@@ -23,7 +26,13 @@ const MyRouter = () => {
             path="register"
             element={<AdminRegister></AdminRegister>}
           ></Route>
+          <Route path="login" element={<AdminLogin></AdminLogin>}></Route>
         </Route>
+
+        <Route
+          path="verify-email"
+          element={<AdminVerify></AdminVerify>}
+        ></Route>
 
         <Route path="student" element={<Outlet></Outlet>}>
           <Route index element={<ReadAllStudent></ReadAllStudent>}></Route>
@@ -57,6 +66,10 @@ const MyRouter = () => {
           <Route
             index
             element={<ReadAllDepartment></ReadAllDepartment>}
+          ></Route>
+          <Route
+            path=":id"
+            element={<ReadSpecificDepartment></ReadSpecificDepartment>}
           ></Route>
           <Route
             path="create"

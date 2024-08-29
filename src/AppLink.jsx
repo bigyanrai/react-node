@@ -21,7 +21,13 @@ const AppLink = () => {
       <NavLink to={"/department/create"} style={{ margin: "20px" }}>
         Create Department
       </NavLink>
-      <NavLink to={"/admin/register"}>Admin Register</NavLink>
+      <NavLink to={"/admin/register"} style={{ margin: "20px" }}>
+        Admin Register
+      </NavLink>
+
+      <NavLink to={"/admin/login"} style={{ margin: "20px" }}>
+        Admin Login
+      </NavLink>
     </>
   );
 };
