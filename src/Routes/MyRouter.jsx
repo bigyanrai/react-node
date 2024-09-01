@@ -14,6 +14,10 @@ import AdminRegister from "../Admin/AdminRegister";
 import AdminVerify from "../Admin/AdminVerify";
 import ReadSpecificDepartment from "../Department/ReadSpecificDepartment";
 import AdminLogin from "../Admin/AdminLogin";
+import AdminDashBoard from "../Admin/AdminDashBoard";
+import AdminMyProfile from "../Admin/AdminMyProfile";
+import AdminProfileUpdate from "../Admin/AdminProfileUpdate";
+import AdminLogout from "../Admin/AdminLogout";
 
 const MyRouter = () => {
   return (
@@ -22,17 +26,18 @@ const MyRouter = () => {
         <Route index element={<Home></Home>}></Route>
 
         <Route path="admin" element={<Outlet></Outlet>}>
+          <Route index element={<AdminDashBoard></AdminDashBoard>}></Route>
           <Route
             path="register"
             element={<AdminRegister></AdminRegister>}
           ></Route>
           <Route path="login" element={<AdminLogin></AdminLogin>}></Route>
+          <Route path="my-profile" element={<AdminMyProfile />}></Route>
+          <Route path="update-profile" element={<AdminProfileUpdate />}></Route>
+          <Route path="logout" element={<AdminLogout></AdminLogout>}></Route>
         </Route>
 
-        <Route
-          path="verify-email"
-          element={<AdminVerify></AdminVerify>}
-        ></Route>
+        <Route path="verify-email" element={<AdminVerify />}></Route>
 
         <Route path="student" element={<Outlet></Outlet>}>
           <Route index element={<ReadAllStudent></ReadAllStudent>}></Route>
