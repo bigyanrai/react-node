@@ -52,8 +52,16 @@ const AdminLogin = () => {
             }}
           />
         </div>
+
         <button type="submit">Login</button>
       </form>
+      <button
+        onClick={() => {
+          navigate("/admin/forgot-password");
+        }}
+      >
+        Forgot Password
+      </button>
     </div>
   );
 };

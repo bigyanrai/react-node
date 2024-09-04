@@ -33,8 +33,15 @@ const AppLink = () => {
         My Profile
       </NavLink>
 
+      <NavLink to={"/admin/update-password"} style={{ margin: "20px" }}>
+        Update Password
+      </NavLink>
+
       <NavLink to={"/admin/logout"} style={{ margin: "20px" }}>
         Logout
+      </NavLink>
+      <NavLink to={"/admin/read-all-user"} style={{ margin: "20px" }}>
+        ReadALlUser
       </NavLink>
     </>
   );

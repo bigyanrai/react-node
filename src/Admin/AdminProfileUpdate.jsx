@@ -44,6 +44,7 @@ const AdminProfileUpdate = () => {
       //   console.log(result);
       setFullName(result.data.data.fullName);
       setAddress(result.data.data.address);
+      ///
     } catch (error) {}
   };
 

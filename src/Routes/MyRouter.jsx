@@ -18,6 +18,10 @@ import AdminDashBoard from "../Admin/AdminDashBoard";
 import AdminMyProfile from "../Admin/AdminMyProfile";
 import AdminProfileUpdate from "../Admin/AdminProfileUpdate";
 import AdminLogout from "../Admin/AdminLogout";
+import AdminUpdatePassword from "../Admin/AdminUpdatePassword";
+import AdminForgotPassword from "../Admin/AdminForgotPassword";
+import AdminResetPassword from "../Admin/AdminResetPassword";
+import ReadAllUser from "../Admin/ReadAllUser";
 
 const MyRouter = () => {
   return (
@@ -34,8 +38,16 @@ const MyRouter = () => {
           <Route path="login" element={<AdminLogin></AdminLogin>}></Route>
           <Route path="my-profile" element={<AdminMyProfile />}></Route>
           <Route path="update-profile" element={<AdminProfileUpdate />}></Route>
+          <Route
+            path="update-password"
+            element={<AdminUpdatePassword />}
+          ></Route>
+          <Route path="forgot-password" element={<AdminForgotPassword />} />
+          <Route path="read-all-user" element={<ReadAllUser />} />
           <Route path="logout" element={<AdminLogout></AdminLogout>}></Route>
         </Route>
+
+        <Route path="reset-password" element={<AdminResetPassword />}></Route>
 
         <Route path="verify-email" element={<AdminVerify />}></Route>
 
